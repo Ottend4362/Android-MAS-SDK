@@ -53,6 +53,10 @@ android {
 
     productFlavors {
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 
@@ -71,6 +75,7 @@ dependencies {
     //Test
     androidTestImplementation project(':mas-test')
     androidTestImplementation "org.bouncycastle:bcpkix-jdk15on:$rootProject.ext.bcpVersion"
+    androidTestCompile project(path: ':mas-profiler')
 }
 
 //Coverage
