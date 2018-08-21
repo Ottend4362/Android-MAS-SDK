@@ -22,6 +22,7 @@ import com.ca.mas.profiler.ProfileConfigurations;
 import com.ca.mas.profiler.Scenario;
 import com.ca.mas.profiler.ScenarioFactory;
 import com.ca.mas.profiler.ScenarioInfo;
+import com.ca.mas.profiler.ScenarioManager;
 
 
 import org.junit.Assert;
@@ -43,23 +44,18 @@ public class MASProfileTest extends MASMockGatewayTestBase  {
     @Before
     public void loadConfigs(){
         context = getContext();
-        ConfigurationManager.getInsgtance().loadConfigurations(getContext());
-        scenarioInfo = ConfigurationManager.getInsgtance().getScenarioInfo();
-        profileConfigs = ConfigurationManager.getInsgtance().getProfileConfigurations();
+
+        ScenarioManager.getInstance().initialize(context);
+
     }
 
        @Test
         public void startFlow(){
 
 
-            for (ScenarioInfo scenario: scenarioInfo){
+            ScenarioManager.getInstance().evaluateScenario();
 
-                    for(int i=0; i<= profileConfigs.getIteration(); i++){
-                       ScenarioFactory.getInstance().getScenario(scenario.getName()).evaluate(context);}
-
-           }
-
-          Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
+           Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
 
 
        }
