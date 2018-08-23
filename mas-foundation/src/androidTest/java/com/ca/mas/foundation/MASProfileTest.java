@@ -8,34 +8,17 @@
 
 package com.ca.mas.foundation;
 
-import android.content.Context;
-import android.os.Debug;
 import android.support.test.runner.AndroidJUnit4;
-import android.util.Log;
 
-import com.ca.mas.MASCallbackFuture;
 import com.ca.mas.MASMockGatewayTestBase;
-import com.ca.mas.Profiler;
-import com.ca.mas.TestUtils;
-import com.ca.mas.profiler.ConfigurationManager;
-import com.ca.mas.profiler.ProfileConfigurations;
-import com.ca.mas.profiler.Scenario;
-import com.ca.mas.profiler.ScenarioFactory;
-import com.ca.mas.profiler.ScenarioInfo;
 
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static com.ca.mas.foundation.MAS.getState;
 
 
 @RunWith(AndroidJUnit4.class)
 public class MASProfileTest extends MASMockGatewayTestBase  {
 
-    private ScenarioInfo[] scenarioInfo ;
+    /*private ScenarioInfo[] scenarioInfo ;
     private ProfileConfigurations profileConfigs;
     private Context context;
 
@@ -55,12 +38,12 @@ public class MASProfileTest extends MASMockGatewayTestBase  {
             for (ScenarioInfo scenario: scenarioInfo){
 
                     for(int i=0; i<= profileConfigs.getIteration(); i++){
-                       ScenarioFactory.getInstance().getScenario(scenario.getName()).evaluate(context);}
+                       MASProfilerEngine.getInstance().getScenario(scenario.getName()).evaluate(context);}
 
            }
 
           Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
 
 
-       }
+       }*/
 }
