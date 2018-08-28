@@ -32,7 +32,7 @@ public class ScenarioManager {
         scenarios = ConfigurationManager.getInstance().getAllScenarios();
     }
 
-    public void startScenarios(Context context) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public void startScenarios(Context context)  {
         ProfilerConfig profileConfig = ConfigurationManager.getInstance().getProfilerConfig();
         int iterations=0;
           if(profileConfig.getOperationType() == ProfilerConfig.OPERATION_TYPE.BENCHMARK){
@@ -41,11 +41,15 @@ public class ScenarioManager {
 
           for(int i=0; i<= iterations ; i++){
 
-              Class c = Class.forName(scenarios.get(i).getClazz());
-              Method method = c.getMethod("evaluate", Context.class);
-              //start time
-              method.invoke(c.newInstance(), context);
-              //end time
+              try {
+                  Class c = Class.forName(scenarios.get(i).getClazz());
+                  Method method = c.getMethod("evaluate", Context.class);
+                  //start time
+                  method.invoke(c.newInstance(), context);
+                  //end time
+              }catch (Exception e){
+
+              }
           }
 
     }

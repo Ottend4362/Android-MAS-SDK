@@ -40,19 +40,8 @@ public class MASProfileTest extends MASMockGatewayTestBase  {
         public void startFlow(){
 
 
-           try {
                ScenarioManager.getInstance().startScenarios(context);
-           } catch (ClassNotFoundException e) {
-               e.printStackTrace();
-           } catch (NoSuchMethodException e) {
-               e.printStackTrace();
-           } catch (IllegalAccessException e) {
-               e.printStackTrace();
-           } catch (InvocationTargetException e) {
-               e.printStackTrace();
-           } catch (InstantiationException e) {
-               e.printStackTrace();
-           }
+
            Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
 
 
