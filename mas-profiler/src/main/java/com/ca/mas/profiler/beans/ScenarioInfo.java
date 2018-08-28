@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ScenarioInfo implements Parcelable {
-    private int _id = -1;
-    private String _name = null;
-    private String _clazz = null;
-    private boolean _enabled = false;
-    private double _benchmark = 0.0;
+    private int id = -1;
+    private String name = null;
+    private String class_name = null;
+    private boolean enabled = false;
+    private double benchmark = 0.0;
 
     public ScenarioInfo() {
 
@@ -39,42 +39,42 @@ public class ScenarioInfo implements Parcelable {
     };
 
     public int getId() {
-        return _id;
+        return id;
     }
 
     public void setId(int id) {
-        this._id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return _name;
+        return name;
     }
 
     public void setName(String name) {
-        this._name = name;
+        this.name = name;
     }
 
     public String getClazz() {
-        return _clazz;
+        return class_name;
     }
 
     public void setClazz(String clazz) {
-        this._clazz = clazz;
+        this.class_name = clazz;
     }
 
     public boolean isEnabled() {
-        return _enabled;
+        return enabled;
     }
 
     public void setEnabled(boolean enabled) {
-        this._enabled = enabled;
+        this.enabled = enabled;
     }
 
     public double getBenchmark() {
-        return _benchmark;
+        return benchmark;
     }
 
     public void setBenchmark(double benchmark) {
-        this._benchmark = benchmark;
+        this.benchmark = benchmark;
     }
 }

@@ -1,0 +1,25 @@
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "name": "MASStartStopScenario",
+      "class_name": "com.ca.mas.profiler.scenario.MASStartStopScenario",
+      "benchmark": 0.1,
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "name": "MASLoginLogoutScenario",
+      "class_name": "com.ca.mas.profiler.MASLoginLogoutScenario",
+      "benchmark": 0.1,
+      "enabled": false
+    },
+    {
+      "id": 3,
+      "name": "MASStartStopScenario",
+      "class_name": "com.ca.mas.profiler.MASLoginDeregisterScenario",
+      "benchmark": 0.1,
+      "enabled": false
+    }
+  ]
+}

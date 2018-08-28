@@ -8,42 +8,53 @@
 
 package com.ca.mas.foundation;
 
+import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.ca.mas.MASMockGatewayTestBase;
+import com.ca.mas.profiler.management.ScenarioManager;
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.lang.reflect.InvocationTargetException;
 
 
 @RunWith(AndroidJUnit4.class)
 public class MASProfileTest extends MASMockGatewayTestBase  {
 
-    /*private ScenarioInfo[] scenarioInfo ;
-    private ProfileConfigurations profileConfigs;
+
     private Context context;
 
 
     @Before
     public void loadConfigs(){
         context = getContext();
-        ConfigurationManager.getInsgtance().loadConfigurations(getContext());
-        scenarioInfo = ConfigurationManager.getInsgtance().getScenarioInfo();
-        profileConfigs = ConfigurationManager.getInsgtance().getProfileConfigurations();
+
+        ScenarioManager.getInstance().loadScenarios(context);
     }
 
        @Test
         public void startFlow(){
 
 
-            for (ScenarioInfo scenario: scenarioInfo){
-
-                    for(int i=0; i<= profileConfigs.getIteration(); i++){
-                       MASProfilerEngine.getInstance().getScenario(scenario.getName()).evaluate(context);}
-
+           try {
+               ScenarioManager.getInstance().startScenarios(context);
+           } catch (ClassNotFoundException e) {
+               e.printStackTrace();
+           } catch (NoSuchMethodException e) {
+               e.printStackTrace();
+           } catch (IllegalAccessException e) {
+               e.printStackTrace();
+           } catch (InvocationTargetException e) {
+               e.printStackTrace();
+           } catch (InstantiationException e) {
+               e.printStackTrace();
            }
+           Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
 
-          Assert.assertTrue("State of SDK= "+MAS.getState(context), false);
 
-
-       }*/
+       }
 }

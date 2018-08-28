@@ -10,16 +10,16 @@ import java.util.Map;
 
 public class ProfilerConfig {
     private JSONObject _profileConfigJSON = null;
-    private OPERATION_TYPE _operationType = null;
-    private int _iterations = 0;
+    private OPERATION_TYPE operation_type = null;
+    private int iteration = 0;
 
 
     public int getIterations() {
-        return _iterations;
+        return iteration;
     }
 
     public void setIterations(int iterations) {
-        this._iterations = iterations;
+        this.iteration = iterations;
     }
 
     public boolean isBenchmarkOP() {
@@ -27,11 +27,11 @@ public class ProfilerConfig {
     }
 
     public OPERATION_TYPE getOperationType() {
-        return _operationType;
+        return operation_type;
     }
 
     public void setOperationType(OPERATION_TYPE operationType) {
-        this._operationType = operationType;
+        this.operation_type = operationType;
     }
 
     public enum OPERATION_TYPE {
@@ -74,9 +74,9 @@ public class ProfilerConfig {
             if (!OPERATION_TYPE.isValid(opType)) {
                 throw new IllegalArgumentException("Invalid OPERATION_TYPE");
             }
-            this._operationType = OPERATION_TYPE.lookup(opType);
-            this._iterations = this._profileConfigJSON.optInt(ProfilerConstants.ITERATION, 0);
-            if (this._operationType == OPERATION_TYPE.BENCHMARK && this._iterations <= 0) {
+            this.operation_type = OPERATION_TYPE.lookup(opType);
+            this.iteration = this._profileConfigJSON.optInt(ProfilerConstants.ITERATION, 0);
+            if (this.operation_type == OPERATION_TYPE.BENCHMARK && this.iteration <= 0) {
                 throw new IllegalArgumentException("Invalid iteration number provided for operation BENCHMARK");
             }
         } catch (JSONException jce) {
